@@ -6,7 +6,7 @@ router.post("/check-text-plagarism", (req, res) => {
   axios.post(
     "https://www.prepostseo.com/apis/checkSentence",
     new URLSearchParams({
-      key: process.env.PLAGARISM_API_KEY,
+      key: 'c6443e8354fa97bad24c783b8820449a',
       query: data
     }),
       { headers: { "Content-Type": "application/x-www-form-urlencoded" }}
@@ -22,7 +22,7 @@ router.post("/check-article-plagarism", (req, res) => {
   axios.post(
     "https://www.prepostseo.com/apis/checkPlag",
     new URLSearchParams({
-      key: process.env.PLAGARISM_API_KEY,
+      key: 'c6443e8354fa97bad24c783b8820449a',
       data: payload
     }),
       { headers: { "Content-Type": "application/x-www-form-urlencoded" }}
