@@ -3,13 +3,14 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 const maxAge = 3 * 24 * 60 * 60;
-const createToken = ({id, role}, res) => {
+const createToken = (user, res) => {
+  const { id, role, password, username, matric, email, _id } = user
   const accessToken = jwt.sign({ id, role }, process.env.JWT_SECRET, {
     expiresIn: maxAge,
   });
   return res.status(200).json({
     successMessage: "Signin was successful.",
-    data: { token: accessToken }
+    data: { token: accessToken, user: {username, matric, email, _id} }
   });
 };
 
