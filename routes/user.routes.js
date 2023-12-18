@@ -4,6 +4,7 @@ const router = express.Router();
 const Plagiarism = require("../models/plagiarism.model");
 const User = require("../models/user.models");
 const { checkUser, checkAdmin } = require("../middlewares/auth");
+const atob = require('atob')
 const ObjectId = require('mongodb').ObjectId
 router.post("/check-text-plagarism", (req, res) => {
   const {data} = req.body;
@@ -57,12 +58,12 @@ router.post("/check-article-plagarism", checkUser, (req, res) => {
 
 router.get('/plagarism-history/:matric', checkUser, async (req, res) => {
   const matric = req.params.matric;
+  const decoded = atob(matric)
   try {
-    if(!matric){
+    const history = await Plagiarism.find({ matric: decoded })
+    if(!history){
       return res.status(404).json({errorMessage : `User does not exist`});
     }
-
-    const history = await Plagiarism.find({ matric })
     res.status(200).json(history);
   } catch (error) {
     return res.status(500).json({errorMessage : "OOPS!!!, Something went wrong7"});
