@@ -24,6 +24,10 @@ let plagiarismSchema = new mongoose.Schema(
       type: Number,
       required: true
     },
+    matric: {
+      type: String,
+      required: true
+    },
     user: {
       type: {},
       required: true
