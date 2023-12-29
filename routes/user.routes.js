@@ -49,7 +49,7 @@ router.post("/check-article-plagarism", checkUser, (req, res) => {
         });
       }).catch((error) => {
         return res.status(500).json({
-          successMessage: error.message || "Something went wrong when Plagiarism saving content to database."
+          errorMessage: error.message || "Something went wrong when Plagiarism saving content to database."
         });
       })
     }else {
