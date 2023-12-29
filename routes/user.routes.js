@@ -37,8 +37,8 @@ router.post("/check-article-plagarism", checkUser, (req, res) => {
       title,
       sources: result?.data?.sources,
       plagPercent: result?.data?.plagPercent,
-      user: res.locals.user,
-      matric: res.locals.user.matric
+      user: res?.locals?.user,
+      matric: res?.locals?.user?.matric
     });
     newPlagiarism.save()
     .then(() => {
@@ -46,7 +46,7 @@ router.post("/check-article-plagarism", checkUser, (req, res) => {
         successMessage: "Plagiarism content was successfully saved to database.",
         result: result.data
       });
-    }).catch(() => {
+    }).catch((error) => {
       return res.status(500).json({
         successMessage: "Something went wrong when Plagiarism saving content to database."
       });
