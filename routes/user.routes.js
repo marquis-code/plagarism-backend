@@ -11,7 +11,7 @@ router.post("/check-text-plagarism", (req, res) => {
   axios.post(
     "https://www.prepostseo.com/apis/checkSentence",
     new URLSearchParams({
-      key: '68de9c4b705d6c07a4e367296d10c773',
+      key: '0d0b14092cf7f380a7bdeadfc479b01f67943f2b',
       query: data
     }),
       { headers: { "Content-Type": "application/x-www-form-urlencoded" }}
@@ -27,7 +27,7 @@ router.post("/check-article-plagarism", checkUser, (req, res) => {
   axios.post(
     "https://www.prepostseo.com/apis/checkPlag",
     new URLSearchParams({
-      key: '68de9c4b705d6c07a4e367296d10c773',
+      key: '0d0b14092cf7f380a7bdeadfc479b01f67943f2b',
       data: payload
     }),
       { headers: { "Content-Type": "application/x-www-form-urlencoded" }}
