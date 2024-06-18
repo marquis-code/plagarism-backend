@@ -27,7 +27,7 @@ router.post("/check-article-plagarism", checkUser, (req, res) => {
   axios.post(
     "https://www.prepostseo.com/apis/checkPlag",
     new URLSearchParams({
-      key: '0d0b14092cf7f380a7bdeadfc479b01f67943f2b',
+      key: 'c6443e8354fa97bad24c783b8820449a',
       data: payload
     }),
       { headers: { "Content-Type": "application/x-www-form-urlencoded" }}
